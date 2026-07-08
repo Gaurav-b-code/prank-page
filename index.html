@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>⚠️ SECURITY ALERT</title>
+    <title>⚠️ CYBER CRIME WARNING</title>
     <style>
         * {
             margin: 0;
@@ -11,7 +11,7 @@
             box-sizing: border-box;
         }
         body {
-            background: #0a0a0a;
+            background: #000;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -19,67 +19,105 @@
             font-family: 'Courier New', monospace;
             overflow: hidden;
         }
+        /* Full Screen Strobe Light Effect (High Level) */
+        #strobe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 0, 0, 0.4);
+            pointer-events: none;
+            z-index: 999;
+            animation: strobeFlash 0.5s infinite alternate;
+        }
+        @keyframes strobeFlash {
+            0% { background: rgba(255, 0, 0, 0.1); }
+            100% { background: rgba(255, 0, 0, 0.6); }
+        }
+
         .container {
             text-align: center;
             padding: 20px;
             width: 100%;
             max-width: 600px;
+            position: relative;
+            z-index: 10;
         }
+
+        /* Main Alert Box - Cyber Crime Style */
         .alert-box {
-            background: #1a0000;
-            border: 3px solid #ff0000;
+            background: #0d0d0d;
+            border: 4px solid #ff2200;
             padding: 30px 20px;
-            border-radius: 20px;
-            box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
-            animation: pulse 0.8s infinite alternate;
+            border-radius: 10px;
+            box-shadow: 0 0 60px rgba(255, 0, 0, 0.8), inset 0 0 30px rgba(255, 0, 0, 0.2);
+            animation: pulseBorder 0.8s infinite alternate;
         }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.2); }
-            100% { box-shadow: 0 0 80px rgba(255, 0, 0, 0.7); }
+        @keyframes pulseBorder {
+            0% { border-color: #ff2200; box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); }
+            100% { border-color: #ff8800; box-shadow: 0 0 80px rgba(255, 68, 0, 0.9); }
         }
-        .alert-icon {
-            font-size: 80px;
+
+        .glitch-icon {
+            font-size: 70px;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            animation: glitch 0.3s infinite alternate;
         }
+        @keyframes glitch {
+            0% { transform: skewX(0deg); opacity: 1; }
+            100% { transform: skewX(5deg); opacity: 0.8; }
+        }
+
         .alert-title {
-            color: #ff0000;
-            font-size: 28px;
+            color: #ff2200;
+            font-size: 26px;
             font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px #ff0000;
+        }
+        .alert-sub {
+            color: #ff6666;
+            font-size: 14px;
+            background: #1a0000;
+            padding: 8px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            border: 1px solid #ff0000;
         }
         .alert-msg {
             color: #ff9999;
             font-size: 18px;
-            margin-top: 15px;
-            line-height: 1.6;
+            margin-top: 20px;
+            line-height: 1.8;
         }
+
         .timer-box {
             margin-top: 30px;
             background: #111;
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
             border: 1px solid #333;
         }
         .timer-label {
-            color: #888;
-            font-size: 14px;
+            color: #ff4444;
+            font-size: 16px;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+            font-weight: bold;
         }
         .countdown {
-            color: #ff4444;
-            font-size: 80px;
+            color: #ff0000;
+            font-size: 90px;
             font-weight: bold;
-            margin-top: 5px;
             font-family: 'Courier New', monospace;
-            text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
-            transition: all 0.3s;
+            text-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
         }
         .progress-bar {
             width: 100%;
-            height: 6px;
+            height: 8px;
             background: #222;
             border-radius: 10px;
             margin-top: 20px;
@@ -88,7 +126,7 @@
         .progress-fill {
             height: 100%;
             width: 100%;
-            background: #ff0000;
+            background: linear-gradient(90deg, #ff0000, #ff8800);
             border-radius: 10px;
             animation: shrink 10s linear forwards;
         }
@@ -96,133 +134,184 @@
             0% { width: 100%; }
             100% { width: 0%; }
         }
+
+        /* PRANK REVEAL - High Level Animation */
         .prank-box {
             display: none;
-            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         @keyframes popIn {
-            0% { transform: scale(0.1) rotate(-20deg); opacity: 0; }
+            0% { transform: scale(0) rotate(-30deg); opacity: 0; }
             100% { transform: scale(1) rotate(0deg); opacity: 1; }
         }
         .prank-title {
-            font-size: 80px;
+            font-size: 70px;
             font-weight: 900;
-            background: linear-gradient(45deg, #ff0000, #ff8800, #ff0000);
+            background: linear-gradient(45deg, #ff0000, #ffaa00, #ff0000);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientMove 1s ease infinite alternate;
-            filter: drop-shadow(0 0 30px rgba(255, 68, 0, 0.6));
+            animation: gradientMove 0.8s ease infinite alternate;
+            filter: drop-shadow(0 0 40px rgba(255, 68, 0, 0.8));
         }
         @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+            0% { background-position: 0% 50%; transform: scale(1); }
+            100% { background-position: 100% 50%; transform: scale(1.1); }
+        }
+        .prank-emoji {
+            font-size: 120px;
+            display: block;
+            animation: shake 0.2s infinite alternate;
+        }
+        @keyframes shake {
+            0% { transform: rotate(-15deg); }
+            100% { transform: rotate(15deg); }
         }
         .prank-sub {
             color: #fff;
-            font-size: 24px;
+            font-size: 28px;
             margin-top: 20px;
-            letter-spacing: 5px;
             background: #222;
-            padding: 10px 30px;
+            padding: 12px 40px;
             border-radius: 50px;
             display: inline-block;
-            border: 1px solid #ff8800;
+            border: 2px solid #ff8800;
+            box-shadow: 0 0 30px rgba(255, 136, 0, 0.3);
         }
-        .prank-emoji {
-            font-size: 100px;
-            display: block;
-            margin-top: 20px;
-            animation: shake 0.3s infinite alternate;
-        }
-        @keyframes shake {
-            0% { transform: rotate(-10deg); }
-            100% { transform: rotate(10deg); }
+        .footer-text {
+            color: #555;
+            margin-top: 30px;
+            font-size: 12px;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
+
+    <!-- Strobe Light overlay for high-level feel -->
+    <div id="strobe"></div>
+
     <div class="container" id="app">
+
+        <!-- STAGE 1: Fake Cyber Alert -->
         <div id="stage1" class="alert-box">
-            <span class="alert-icon">⚠️</span>
-            <div class="alert-title">🚨 SYSTEM HACKED 🚨</div>
+            <span class="glitch-icon">🖥️⚠️</span>
+            <div class="alert-title">🔴 YOUR SYSTEM HAS BEEN BREACHED</div>
+            <div class="alert-sub">📍 Location: Delhi, India • IP: 192.168.1.1</div>
             <div class="alert-msg">
-                Your device has been compromised.<br>
-                Initiating emergency data wipe in...
+                We have detected unauthorized access to your camera & data.<br>
+                <strong style="color:#ff0000;">Initiating permanent data destruction in...</strong>
             </div>
             <div class="timer-box">
-                <div class="timer-label">⚠️ Countdown ⚠️</div>
+                <div class="timer-label">⏳ COUNTDOWN TO LOCKDOWN</div>
                 <div class="countdown" id="timerDisplay">10</div>
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
             </div>
-            <div class="alert-msg" style="font-size:12px; color:#550000; margin-top:20px;">
-                Do NOT turn off your device.
+            <div class="alert-msg" style="font-size:12px; color:#440000; margin-top:15px;">
+                🔒 Do not close this window. FBI Cyber Crime Division notified.
             </div>
         </div>
+
+        <!-- STAGE 2: PRANK BRO Reveal -->
         <div id="stage2" class="prank-box">
             <div class="prank-title">PRANK BRO! 😂</div>
             <span class="prank-emoji">🤡</span>
             <div class="prank-sub">GOT YOU! 🔥</div>
-            <div style="color:#888; margin-top:30px; font-size:14px; border-top:1px solid #222; padding-top:20px;">
-                Tension mat lo, bas mazaak tha! <br> ❤️ Aapka dost
+            <div class="footer-text">
+                ❤️ Aapka dost • Tension mat lo, bas mazaak tha!
             </div>
         </div>
     </div>
+
     <script>
         (function() {
             let counter = 10;
             const timerDisplay = document.getElementById('timerDisplay');
             const stage1 = document.getElementById('stage1');
             const stage2 = document.getElementById('stage2');
-            const progressFill = document.getElementById('progressFill');
-            function playBeep(frequency = 800, duration = 200, volume = 0.3) {
-                try {
-                    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                    const oscillator = audioCtx.createOscillator();
-                    const gainNode = audioCtx.createGain();
-                    oscillator.type = 'sawtooth';
-                    oscillator.frequency.value = frequency;
-                    gainNode.gain.value = volume;
-                    oscillator.connect(gainNode);
-                    gainNode.connect(audioCtx.destination);
-                    oscillator.start();
-                    setTimeout(() => {
-                        oscillator.stop();
-                        audioCtx.close();
-                    }, duration);
-                } catch (e) {
-                    console.log("Audio not supported");
-                }
+            const strobe = document.getElementById('strobe');
+
+            // ---------- 🔊 Aapki Apni Sound File (HIGH LEVEL) ----------
+            // IMPORTANT: Agar aapne file ka naam 'alarm.mp3' rakha hai toh ye sahi hai.
+            // Agar 'sound.mp3' ya kuch aur rakha hai toh neeche 'alarm.mp3' ki jagah woh naam likh do.
+            const audio = new Audio('alarm.mp3'); 
+            audio.loop = true;  // Tab tak bajta rahega jab tak PRANK reveal nahi ho jata
+            audio.volume = 0.9; // Tez awaz (full volume)
+
+            // Awaz ko turant bajana shuru karo (bina kisi delay ke)
+            function playSound() {
+                audio.play().catch(function(error) {
+                    // Agar auto-play block ho (mobile policy), toh user click par chala denge
+                    console.log("Auto-play blocked. Waiting for user interaction.");
+                    document.addEventListener('click', function playOnClick() {
+                        audio.play();
+                        document.removeEventListener('click', playOnClick);
+                    }, { once: true });
+                });
             }
-            setTimeout(() => playBeep(880, 300, 0.4), 300);
+
+            // Pehle 1 second baad sound bajao (page load hone do)
+            setTimeout(playSound, 300);
+
+            // ----- Countdown Timer Logic -----
             const interval = setInterval(() => {
                 counter--;
                 timerDisplay.textContent = counter;
-                if (counter <= 3) {
-                    playBeep(1000, 150, 0.5);
-                    timerDisplay.style.color = '#ff0000';
-                } else {
-                    playBeep(700, 150, 0.3);
-                }
+
+                // Counter khatam hone par
                 if (counter <= 0) {
                     clearInterval(interval);
+
+                    // 🔇 SOUND BAND KARO (kyunki ab PRANK reveal ho raha hai)
+                    audio.pause();
+                    audio.currentTime = 0; // Reset karo
+
+                    // Stage 1 hide, Stage 2 show
                     stage1.style.display = 'none';
                     stage2.style.display = 'block';
-                    setTimeout(() => playBeep(1200, 200, 0.5), 100);
-                    setTimeout(() => playBeep(1500, 300, 0.6), 400);
-                    setTimeout(() => playBeep(800, 400, 0.7), 800);
+
+                    // Strobe light hatao ya band karo (thoda smoothness ke liye)
+                    strobe.style.animation = 'none';
+                    strobe.style.background = 'transparent';
+
+                    // End mein mazedaar beep (kuch natural sound)
+                    try {
+                        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'square';
+                        osc.frequency.value = 800;
+                        gain.gain.value = 0.3;
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start();
+                        setTimeout(() => { osc.stop(); ctx.close(); }, 400);
+                    } catch (e) {}
                 }
             }, 1000);
+
+            // ----- Mobile Extra Features (High Level) -----
+            // Screen rotate lock
             if (screen.orientation) {
                 try {
                     screen.orientation.lock('portrait');
                 } catch (e) {}
             }
+            // Mobile Vibrate
             if (navigator.vibrate) {
-                navigator.vibrate([200, 100, 200]);
+                navigator.vibrate([300, 100, 300, 100, 500]);
             }
+
+            // Agar koi user page par click kare aur sound na baj rahi ho toh force play
+            document.addEventListener('click', function() {
+                if (audio.paused && stage1.style.display !== 'none') {
+                    audio.play().catch(e => console.log("Still blocked"));
+                }
+            });
+
         })();
     </script>
 </body>
