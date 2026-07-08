@@ -25,7 +25,6 @@
             width: 100%;
             max-width: 600px;
         }
-        /* Stage 1: Alert Box */
         .alert-box {
             background: #1a0000;
             border: 3px solid #ff0000;
@@ -97,8 +96,6 @@
             0% { width: 100%; }
             100% { width: 0%; }
         }
-
-        /* Stage 2: Prank Reveal (Hidden initially) */
         .prank-box {
             display: none;
             animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -115,7 +112,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradientMove 1s ease infinite alternate;
-            text-shadow: none;
             filter: drop-shadow(0 0 30px rgba(255, 68, 0, 0.6));
         }
         @keyframes gradientMove {
@@ -146,9 +142,7 @@
     </style>
 </head>
 <body>
-
     <div class="container" id="app">
-        <!-- STAGE 1: Fake Alert + Timer -->
         <div id="stage1" class="alert-box">
             <span class="alert-icon">⚠️</span>
             <div class="alert-title">🚨 SYSTEM HACKED 🚨</div>
@@ -167,8 +161,6 @@
                 Do NOT turn off your device.
             </div>
         </div>
-
-        <!-- STAGE 2: PRANK BRO Reveal -->
         <div id="stage2" class="prank-box">
             <div class="prank-title">PRANK BRO! 😂</div>
             <span class="prank-emoji">🤡</span>
@@ -178,7 +170,6 @@
             </div>
         </div>
     </div>
-
     <script>
         (function() {
             let counter = 10;
@@ -186,14 +177,12 @@
             const stage1 = document.getElementById('stage1');
             const stage2 = document.getElementById('stage2');
             const progressFill = document.getElementById('progressFill');
-
-            // --- Audio: Fake Alarm Beep using Web Audio API (No external file needed) ---
             function playBeep(frequency = 800, duration = 200, volume = 0.3) {
                 try {
                     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
                     const oscillator = audioCtx.createOscillator();
                     const gainNode = audioCtx.createGain();
-                    oscillator.type = 'sawtooth'; // Harsh sound for alarm
+                    oscillator.type = 'sawtooth';
                     oscillator.frequency.value = frequency;
                     gainNode.gain.value = volume;
                     oscillator.connect(gainNode);
@@ -204,53 +193,36 @@
                         audioCtx.close();
                     }, duration);
                 } catch (e) {
-                    // Fallback if audio context fails (silent)
                     console.log("Audio not supported");
                 }
             }
-
-            // Play initial beep to grab attention
             setTimeout(() => playBeep(880, 300, 0.4), 300);
-
-            // Start countdown
             const interval = setInterval(() => {
                 counter--;
                 timerDisplay.textContent = counter;
-
-                // Beep faster as time runs out
                 if (counter <= 3) {
                     playBeep(1000, 150, 0.5);
-                    // Make it blink red fast
                     timerDisplay.style.color = '#ff0000';
                 } else {
                     playBeep(700, 150, 0.3);
                 }
-
                 if (counter <= 0) {
                     clearInterval(interval);
-                    // --- Switch to PRANK REVEAL ---
                     stage1.style.display = 'none';
                     stage2.style.display = 'block';
-
-                    // Play celebratory/evil beep
                     setTimeout(() => playBeep(1200, 200, 0.5), 100);
                     setTimeout(() => playBeep(1500, 300, 0.6), 400);
                     setTimeout(() => playBeep(800, 400, 0.7), 800);
                 }
             }, 1000);
-
-            // Lock screen orientation hint (mobile)
             if (screen.orientation) {
                 try {
                     screen.orientation.lock('portrait');
                 } catch (e) {}
             }
-
-            // Vibrate for mobile (if supported)
             if (navigator.vibrate) {
                 navigator.vibrate([200, 100, 200]);
             }
-
         })();
     </script>
 </body>
