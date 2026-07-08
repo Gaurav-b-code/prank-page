@@ -137,7 +137,6 @@
             border-radius: 8px;
             display: block;
         }
-        /* Mugshot ID text */
         .mugshot-id {
             color: #ff4444;
             font-size: 11px;
@@ -177,47 +176,72 @@
             letter-spacing: 1px;
         }
 
-        /* ----- COUNTDOWN TIMER ----- */
-        .timer-box {
+        /* 🔐 PASSWORD BOX (Countdown ki jagah) */
+        .password-box {
             margin-top: 15px;
             background: #111;
-            padding: 15px;
+            padding: 20px 15px;
             border-radius: 10px;
             border: 1px solid #2a0000;
         }
-        .timer-label {
+        .password-box label {
             color: #ff4444;
             font-size: 14px;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .password-input-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .password-input-group input {
+            background: #0a0a0a;
+            color: #ff4444;
+            border: 2px solid #ff0000;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-family: inherit;
+            width: 60%;
+            min-width: 180px;
+            outline: none;
+            text-align: center;
             letter-spacing: 3px;
-            font-weight: bold;
         }
-        .countdown {
+        .password-input-group input:focus {
+            border-color: #ff8800;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+        }
+        .password-input-group button {
+            background: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            transition: 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .password-input-group button:hover {
+            background: #cc0000;
+            transform: scale(1.02);
+        }
+        #errorMsg {
             color: #ff0000;
-            font-size: 80px;
+            margin-top: 12px;
+            font-size: 14px;
+            height: 22px;
             font-weight: bold;
-            font-family: 'Courier New', monospace;
-            text-shadow: 0 0 50px rgba(255, 0, 0, 0.9);
-            line-height: 1.2;
-        }
-        .progress-bar {
-            width: 100%;
-            height: 6px;
-            background: #1a1a1a;
-            border-radius: 10px;
-            margin-top: 15px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(90deg, #ff0000, #ff8800);
-            border-radius: 10px;
-            animation: shrink 10s linear forwards;
-        }
-        @keyframes shrink {
-            0% { width: 100%; }
-            100% { width: 0%; }
+            text-shadow: 0 0 20px #ff0000;
         }
 
         .warning-note {
@@ -294,7 +318,7 @@
 
     <div class="container" id="app">
 
-        <!-- STAGE 1: HACKER ALERT WITH PHOTO -->
+        <!-- STAGE 1: HACKER ALERT WITH PASSWORD LOCK -->
         <div id="stage1" class="alert-box">
             
             <!-- Top Badge -->
@@ -304,11 +328,11 @@
             <div class="alert-title">🔴 GLOBAL HACK DETECTED</div>
             <div class="alert-sub">📍 Case: #H4CK-2026 • Priority: CRITICAL</div>
 
-            <!-- 📸 PASSPORT PHOTO - CENTER (Yahan tumhari photo aayegi) -->
+            <!-- 📸 PASSPORT PHOTO - CENTER -->
             <div class="photo-section">
                 <div class="photo-frame">
-                    <!-- IMPORTANT: Agar tumne photo ka naam 'profile.jpg' rakha hai toh sahi hai, warna isko change karna -->
-                    <img src="profile.jpg" alt="Suspect Photo" id="userPhoto">
+                    <!-- YAHAN APNI PHOTO KA NAAM LIKHO (Jaise: profile.jpg) -->
+                    <img src="profile.jpg" alt="Suspect Photo">
                 </div>
             </div>
             <div class="mugshot-id">🔍 SUSPECT ID: GAURAV #786</div>
@@ -322,17 +346,18 @@
             </div>
 
             <!-- Alert Message -->
-            <div style="color:#ff7777; font-size:15px; margin-bottom:10px;">
-                ⚡ Unauthorized data exfiltration detected. <strong style="color:#ff0000;">Deleting system files in...</strong>
+            <div style="color:#ff7777; font-size:15px; margin-bottom:15px;">
+                ⚡ Unauthorized data exfiltration detected. <strong style="color:#ff0000;">SYSTEM LOCKED!</strong>
             </div>
 
-            <!-- Countdown Timer -->
-            <div class="timer-box">
-                <div class="timer-label">⏳ COUNTDOWN TO LOCKDOWN</div>
-                <div class="countdown" id="timerDisplay">10</div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
+            <!-- 🔐 PASSWORD LOCK (Countdown hata diya) -->
+            <div class="password-box">
+                <label>🔐 ENTER ADMIN OVERRIDE CODE TO UNLOCK</label>
+                <div class="password-input-group">
+                    <input type="password" id="passwordInput" placeholder="Enter Password...">
+                    <button id="unlockBtn">🔓 UNLOCK</button>
                 </div>
+                <div id="errorMsg">⚠️ ACCESS CODE REQUIRED</div>
             </div>
 
             <div class="warning-note">
@@ -340,10 +365,10 @@
             </div>
         </div>
 
-        <!-- STAGE 2: PRANK BRO WITH PHOTO -->
+        <!-- STAGE 2: PRANK BRO REVEAL -->
         <div id="stage2" class="prank-box">
             <div class="prank-title">PRANK BRO! 😂</div>
-            <!-- Yahan bhi wahi photo aayegi, lekin mast mazaak wali style mein -->
+            <!-- Yahan bhi wahi photo aayegi -->
             <img src="profile.jpg" alt="Prank Photo" class="prank-photo">
             <div class="prank-sub">GOT YOU! 🔥</div>
             <div class="footer-text">
@@ -354,16 +379,19 @@
 
     <script>
         (function() {
-            let counter = 10;
-            const timerDisplay = document.getElementById('timerDisplay');
             const stage1 = document.getElementById('stage1');
             const stage2 = document.getElementById('stage2');
             const strobe = document.getElementById('strobe');
+            const passwordInput = document.getElementById('passwordInput');
+            const unlockBtn = document.getElementById('unlockBtn');
+            const errorMsg = document.getElementById('errorMsg');
+
+            // 🔑 SECRET PASSWORD (Isko tum badal sakte ho)
+            const CORRECT_PASSWORD = 'gaurav'; // <-- Yahan apna password likho
 
             // ---------- 🔊 SOUND SETUP ----------
-            // IMPORTANT: Agar aapki sound file ka naam 'Jadu_om_om.mp3' hai toh neeche wahi likho.
-            // Agar 'alarm.mp3' rakha hai toh 'alarm.mp3' hi rehne do.
-            const audio = new Audio('Jadu_om_om.mp3'); // <-- Yahan apni file ka naam likho
+            // IMPORTANT: Yahan apni sound file (Zedge wali) ka exact naam likho.
+            const audio = new Audio('Jadu_om_om.mp3'); 
             audio.loop = true;
             audio.volume = 0.9;
 
@@ -376,32 +404,29 @@
                 });
             }
 
-            // Page load hote hi 0.5 second baad sound bajao
+            // Page load hote hi sound bajao
             setTimeout(playSound, 500);
 
-            // ----- COUNTDOWN LOGIC -----
-            const interval = setInterval(() => {
-                counter--;
-                timerDisplay.textContent = counter;
+            // ----- UNLOCK FUNCTION (Password Check) -----
+            function unlockSystem() {
+                const enteredPassword = passwordInput.value.trim(); // User ne kya likha
 
-                if (counter <= 3) {
-                    timerDisplay.style.color = '#ff0000';
-                }
-
-                if (counter <= 0) {
-                    clearInterval(interval);
+                if (enteredPassword.toLowerCase() === CORRECT_PASSWORD) {
+                    // ✅ SAHI PASSWORD: PRANK REVEAL KARO
+                    stage1.style.display = 'none';
+                    stage2.style.display = 'block';
 
                     // 🛑 Sound band karo
                     audio.pause();
                     audio.currentTime = 0;
 
-                    // Stage 1 -> Stage 2
-                    stage1.style.display = 'none';
-                    stage2.style.display = 'block';
-
                     // Strobe hatao
                     strobe.style.animation = 'none';
                     strobe.style.background = 'transparent';
+
+                    // Error message clear karo
+                    errorMsg.style.color = '#00ff00';
+                    errorMsg.textContent = '✅ ACCESS GRANTED! UNLOCKING SYSTEM...';
 
                     // End mein mazedar beep
                     try {
@@ -417,8 +442,46 @@
                         setTimeout(() => { osc.stop();
                             ctx.close(); }, 400);
                     } catch (e) {}
+
+                } else {
+                    // ❌ GALAT PASSWORD: Darao aur kuch mat karo (Stage1 wahi rahega)
+                    errorMsg.style.color = '#ff0000';
+                    errorMsg.textContent = '❌ INCORRECT CODE! ACCESS DENIED! SHUTTING DOWN... (just kidding, try again)';
+                    passwordInput.value = ''; // Input clear karo
+                    passwordInput.focus();
+
+                    // Galat password par ek choti beep (aur daraane ke liye)
+                    try {
+                        const ctx = new(window.AudioContext || window.webkitAudioContext)();
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'sawtooth';
+                        osc.frequency.value = 200;
+                        gain.gain.value = 0.2;
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start();
+                        setTimeout(() => { osc.stop();
+                            ctx.close(); }, 300);
+                    } catch (e) {}
+
+                    // Mobile vibrate (galti par jhatka)
+                    if (navigator.vibrate) {
+                        navigator.vibrate([100, 50, 100]);
+                    }
                 }
-            }, 1000);
+            }
+
+            // ----- BUTTON CLICK EVENT -----
+            unlockBtn.addEventListener('click', unlockSystem);
+
+            // ----- ENTER KEY PRESS EVENT (Keyboard se bhi kaam kare) -----
+            passwordInput.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    unlockSystem();
+                }
+            });
 
             // ----- MOBILE FEATURES -----
             if (screen.orientation) {
@@ -428,7 +491,7 @@
                 navigator.vibrate([300, 100, 300, 100, 500]);
             }
 
-            // Click par sound force play
+            // Page par click karne par sound force play
             document.addEventListener('click', function() {
                 if (audio.paused && stage1.style.display !== 'none') {
                     audio.play().catch(e => console.log("Still blocked"));
