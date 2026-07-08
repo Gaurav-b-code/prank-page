@@ -1,72 +1,257 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-<title>Security Alert</title>
-<style>
-body{
-    background:black;
-    color:red;
-    text-align:center;
-    font-family:Arial;
-    padding-top:100px;
-}
-.box{
-    border:3px solid red;
-    padding:30px;
-    width:350px;
-    margin:auto;
-    border-radius:15px;
-}
-input,button{
-    padding:10px;
-    margin:10px;
-    font-size:18px;
-}
-</style>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>⚠️ SECURITY ALERT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0a0a0a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+        /* Stage 1: Alert Box */
+        .alert-box {
+            background: #1a0000;
+            border: 3px solid #ff0000;
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
+            animation: pulse 0.8s infinite alternate;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.2); }
+            100% { box-shadow: 0 0 80px rgba(255, 0, 0, 0.7); }
+        }
+        .alert-icon {
+            font-size: 80px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .alert-title {
+            color: #ff0000;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .alert-msg {
+            color: #ff9999;
+            font-size: 18px;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+        .timer-box {
+            margin-top: 30px;
+            background: #111;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        .timer-label {
+            color: #888;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        .countdown {
+            color: #ff4444;
+            font-size: 80px;
+            font-weight: bold;
+            margin-top: 5px;
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            transition: all 0.3s;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #222;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            width: 100%;
+            background: #ff0000;
+            border-radius: 10px;
+            animation: shrink 10s linear forwards;
+        }
+        @keyframes shrink {
+            0% { width: 100%; }
+            100% { width: 0%; }
+        }
 
+        /* Stage 2: Prank Reveal (Hidden initially) */
+        .prank-box {
+            display: none;
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.1) rotate(-20deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        .prank-title {
+            font-size: 80px;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff0000, #ff8800, #ff0000);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 1s ease infinite alternate;
+            text-shadow: none;
+            filter: drop-shadow(0 0 30px rgba(255, 68, 0, 0.6));
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        .prank-sub {
+            color: #fff;
+            font-size: 24px;
+            margin-top: 20px;
+            letter-spacing: 5px;
+            background: #222;
+            padding: 10px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            border: 1px solid #ff8800;
+        }
+        .prank-emoji {
+            font-size: 100px;
+            display: block;
+            margin-top: 20px;
+            animation: shake 0.3s infinite alternate;
+        }
+        @keyframes shake {
+            0% { transform: rotate(-10deg); }
+            100% { transform: rotate(10deg); }
+        }
+    </style>
+</head>
 <body>
 
-<div class="box">
-<h1>⚠️ SECURITY ALERT ⚠️</h1>
+    <div class="container" id="app">
+        <!-- STAGE 1: Fake Alert + Timer -->
+        <div id="stage1" class="alert-box">
+            <span class="alert-icon">⚠️</span>
+            <div class="alert-title">🚨 SYSTEM HACKED 🚨</div>
+            <div class="alert-msg">
+                Your device has been compromised.<br>
+                Initiating emergency data wipe in...
+            </div>
+            <div class="timer-box">
+                <div class="timer-label">⚠️ Countdown ⚠️</div>
+                <div class="countdown" id="timerDisplay">10</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+            <div class="alert-msg" style="font-size:12px; color:#550000; margin-top:20px;">
+                Do NOT turn off your device.
+            </div>
+        </div>
 
-<p>Your device has been locked!</p>
+        <!-- STAGE 2: PRANK BRO Reveal -->
+        <div id="stage2" class="prank-box">
+            <div class="prank-title">PRANK BRO! 😂</div>
+            <span class="prank-emoji">🤡</span>
+            <div class="prank-sub">GOT YOU! 🔥</div>
+            <div style="color:#888; margin-top:30px; font-size:14px; border-top:1px solid #222; padding-top:20px;">
+                Tension mat lo, bas mazaak tha! <br> ❤️ Aapka dost
+            </div>
+        </div>
+    </div>
 
-<p>Enter Password To Unlock</p>
+    <script>
+        (function() {
+            let counter = 10;
+            const timerDisplay = document.getElementById('timerDisplay');
+            const stage1 = document.getElementById('stage1');
+            const stage2 = document.getElementById('stage2');
+            const progressFill = document.getElementById('progressFill');
 
-<input id="pass" type="password" placeholder="Password">
+            // --- Audio: Fake Alarm Beep using Web Audio API (No external file needed) ---
+            function playBeep(frequency = 800, duration = 200, volume = 0.3) {
+                try {
+                    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    const oscillator = audioCtx.createOscillator();
+                    const gainNode = audioCtx.createGain();
+                    oscillator.type = 'sawtooth'; // Harsh sound for alarm
+                    oscillator.frequency.value = frequency;
+                    gainNode.gain.value = volume;
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioCtx.destination);
+                    oscillator.start();
+                    setTimeout(() => {
+                        oscillator.stop();
+                        audioCtx.close();
+                    }, duration);
+                } catch (e) {
+                    // Fallback if audio context fails (silent)
+                    console.log("Audio not supported");
+                }
+            }
 
-<br>
+            // Play initial beep to grab attention
+            setTimeout(() => playBeep(880, 300, 0.4), 300);
 
-<button onclick="unlock()">UNLOCK</button>
+            // Start countdown
+            const interval = setInterval(() => {
+                counter--;
+                timerDisplay.textContent = counter;
 
-<h2 id="msg"></h2>
+                // Beep faster as time runs out
+                if (counter <= 3) {
+                    playBeep(1000, 150, 0.5);
+                    // Make it blink red fast
+                    timerDisplay.style.color = '#ff0000';
+                } else {
+                    playBeep(700, 150, 0.3);
+                }
 
-</div>
+                if (counter <= 0) {
+                    clearInterval(interval);
+                    // --- Switch to PRANK REVEAL ---
+                    stage1.style.display = 'none';
+                    stage2.style.display = 'block';
 
+                    // Play celebratory/evil beep
+                    setTimeout(() => playBeep(1200, 200, 0.5), 100);
+                    setTimeout(() => playBeep(1500, 300, 0.6), 400);
+                    setTimeout(() => playBeep(800, 400, 0.7), 800);
+                }
+            }, 1000);
 
-<script>
+            // Lock screen orientation hint (mobile)
+            if (screen.orientation) {
+                try {
+                    screen.orientation.lock('portrait');
+                } catch (e) {}
+            }
 
-function unlock(){
+            // Vibrate for mobile (if supported)
+            if (navigator.vibrate) {
+                navigator.vibrate([200, 100, 200]);
+            }
 
-let p=document.getElementById("pass").value;
-
-if(p=="1234"){
-
-document.body.innerHTML=
-"<h1 style='color:lime;text-align:center;margin-top:200px'>😂 PRANK COMPLETE 😂<br>Relax Bro!</h1>";
-
-}
-else{
-
-document.getElementById("msg").innerHTML=
-"Wrong Password 😈";
-
-}
-
-}
-
-</script>
-
+        })();
+    </script>
 </body>
 </html>
