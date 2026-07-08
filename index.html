@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>🔴 INTERPOL CYBER ALERT</title>
     <style>
-        /* ----- RESET & BASE ----- */
         * {
             margin: 0;
             padding: 0;
@@ -18,10 +17,10 @@
             justify-content: center;
             align-items: center;
             font-family: 'Courier New', monospace;
-            overflow: hidden;
+            padding: 10px;
         }
 
-        /* ----- SCANLINE EFFECT (Real Hacker Feel) ----- */
+        /* Scanline effect */
         body::before {
             content: '';
             position: fixed;
@@ -34,7 +33,7 @@
             z-index: 999;
         }
 
-        /* ----- STROBE LIGHT ----- */
+        /* Strobe Light */
         #strobe {
             position: fixed;
             top: 0;
@@ -53,114 +52,102 @@
 
         .container {
             text-align: center;
-            padding: 15px;
             width: 100%;
-            max-width: 550px;
+            max-width: 480px;
             position: relative;
             z-index: 10;
         }
 
-        /* ----- MAIN ALERT BOX (FBI/INTERPOL Style) ----- */
+        /* 🔥 CHHOTA AUR COMPACT CARD */
         .alert-box {
             background: #0a0a0a;
             border: 3px solid #ff2200;
-            padding: 25px 20px 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 70px rgba(255, 0, 0, 0.6), inset 0 0 40px rgba(255, 0, 0, 0.15);
+            padding: 15px 12px 18px;
+            border-radius: 12px;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.5);
             animation: pulseBorder 1s infinite alternate;
         }
         @keyframes pulseBorder {
-            0% { border-color: #cc0000; box-shadow: 0 0 40px rgba(255, 0, 0, 0.4); }
-            100% { border-color: #ff6600; box-shadow: 0 0 100px rgba(255, 68, 0, 0.9); }
+            0% { border-color: #cc0000; box-shadow: 0 0 30px rgba(255, 0, 0, 0.4); }
+            100% { border-color: #ff6600; box-shadow: 0 0 70px rgba(255, 68, 0, 0.8); }
         }
 
-        /* ----- TOP HEADER (Cyber Crime) ----- */
         .header-tag {
             background: #1a0000;
             color: #ff4444;
-            font-size: 12px;
-            letter-spacing: 4px;
-            padding: 6px 15px;
-            border-radius: 30px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            padding: 4px 12px;
+            border-radius: 20px;
             display: inline-block;
             border: 1px solid #ff0000;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
             font-weight: bold;
         }
         .alert-title {
             color: #ff2200;
-            font-size: 24px;
+            font-size: 18px;
             font-weight: bold;
-            letter-spacing: 2px;
-            text-shadow: 0 0 30px #ff0000;
+            letter-spacing: 1px;
+            text-shadow: 0 0 20px #ff0000;
         }
         .alert-sub {
             color: #ff6666;
-            font-size: 13px;
+            font-size: 10px;
             background: #1a0000;
-            padding: 5px 15px;
-            border-radius: 5px;
+            padding: 3px 12px;
+            border-radius: 4px;
             display: inline-block;
-            margin-top: 8px;
+            margin-top: 4px;
             border: 1px solid #330000;
         }
 
-        /* ----- 📸 PASSPORT SIZE PHOTO (CENTER) ----- */
+        /* 📸 CHHOTA PHOTO */
         .photo-section {
-            margin: 20px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin: 10px auto;
         }
         .photo-frame {
-            border: 4px solid #ff2200;
-            border-radius: 12px;
-            padding: 6px;
+            border: 3px solid #ff2200;
+            border-radius: 10px;
+            padding: 4px;
             background: #000;
-            box-shadow: 0 0 40px rgba(255, 0, 0, 0.5);
-            animation: glowPulse 1.2s infinite alternate;
-            width: 130px;
-            height: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+            width: 90px;
+            height: 105px;
+            display: inline-block;
             overflow: hidden;
-        }
-        @keyframes glowPulse {
-            0% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
-            100% { box-shadow: 0 0 60px rgba(255, 68, 0, 0.8); }
         }
         .photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 6px;
             display: block;
         }
         .mugshot-id {
             color: #ff4444;
-            font-size: 11px;
-            letter-spacing: 2px;
-            margin-top: 8px;
+            font-size: 9px;
+            letter-spacing: 1px;
+            margin-top: 4px;
             background: #111;
-            padding: 3px 15px;
-            border-radius: 20px;
+            padding: 2px 12px;
+            border-radius: 15px;
             border: 1px dashed #ff0000;
             display: inline-block;
         }
 
-        /* ----- FAKE DETAILS (Hacker Info) ----- */
+        /* छोटा Details Grid */
         .details-grid {
             background: #0d0d0d;
             border: 1px solid #222;
-            border-radius: 8px;
-            padding: 12px 15px;
-            margin: 15px 0 20px;
+            border-radius: 6px;
+            padding: 6px 10px;
+            margin: 10px 0 12px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 5px 15px;
+            gap: 3px 10px;
             text-align: left;
-            font-size: 13px;
+            font-size: 11px;
         }
         .details-grid span {
             color: #888;
@@ -172,64 +159,70 @@
         .details-grid .label {
             color: #555;
             text-transform: uppercase;
-            font-size: 10px;
-            letter-spacing: 1px;
+            font-size: 8px;
+            letter-spacing: 0.5px;
         }
 
-        /* 🔐 PASSWORD BOX (Countdown ki jagah) */
+        /* Alert Message */
+        .alert-msg-small {
+            color: #ff7777;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        /* 🔐 PASSWORD BOX (अब बटन साफ दिखेगा) */
         .password-box {
-            margin-top: 15px;
             background: #111;
-            padding: 20px 15px;
-            border-radius: 10px;
+            padding: 12px 10px;
+            border-radius: 8px;
             border: 1px solid #2a0000;
         }
         .password-box label {
             color: #ff4444;
-            font-size: 14px;
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             font-weight: bold;
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         .password-input-group {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             justify-content: center;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
         .password-input-group input {
             background: #0a0a0a;
             color: #ff4444;
             border: 2px solid #ff0000;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 18px;
+            padding: 8px 10px;
+            border-radius: 6px;
+            font-size: 14px;
             font-family: inherit;
             width: 60%;
-            min-width: 180px;
             outline: none;
             text-align: center;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
         .password-input-group input:focus {
             border-color: #ff8800;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
         }
         .password-input-group button {
             background: #ff0000;
             color: #fff;
             border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            font-size: 18px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
             transition: 0.2s;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            white-space: nowrap;
         }
         .password-input-group button:hover {
             background: #cc0000;
@@ -237,22 +230,22 @@
         }
         #errorMsg {
             color: #ff0000;
-            margin-top: 12px;
-            font-size: 14px;
-            height: 22px;
+            margin-top: 8px;
+            font-size: 11px;
+            height: 18px;
             font-weight: bold;
-            text-shadow: 0 0 20px #ff0000;
+            text-shadow: 0 0 10px #ff0000;
         }
 
         .warning-note {
             color: #440000;
-            font-size: 11px;
-            margin-top: 15px;
+            font-size: 9px;
+            margin-top: 10px;
             border-top: 1px solid #1a0000;
-            padding-top: 15px;
+            padding-top: 10px;
         }
 
-        /* ----- PRANK REVEAL (Photo ke saath) ----- */
+        /* PRANK REVEAL */
         .prank-box {
             display: none;
             animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -262,29 +255,29 @@
             100% { transform: scale(1) rotate(0deg); opacity: 1; }
         }
         .prank-title {
-            font-size: 65px;
+            font-size: 45px;
             font-weight: 900;
             background: linear-gradient(45deg, #ff0000, #ffaa00, #ff0000);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradientMove 0.6s ease infinite alternate;
-            filter: drop-shadow(0 0 40px rgba(255, 68, 0, 0.7));
+            filter: drop-shadow(0 0 30px rgba(255, 68, 0, 0.7));
         }
         @keyframes gradientMove {
             0% { background-position: 0% 50%; transform: scale(1); }
             100% { background-position: 100% 50%; transform: scale(1.05); }
         }
         .prank-photo {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            border: 6px solid #ff8800;
+            border: 5px solid #ff8800;
             object-fit: cover;
-            margin: 15px auto;
+            margin: 10px auto;
             display: block;
             animation: shake 0.2s infinite alternate;
-            box-shadow: 0 0 60px rgba(255, 136, 0, 0.5);
+            box-shadow: 0 0 40px rgba(255, 136, 0, 0.5);
         }
         @keyframes shake {
             0% { transform: rotate(-10deg); }
@@ -292,88 +285,72 @@
         }
         .prank-sub {
             color: #fff;
-            font-size: 26px;
-            margin-top: 10px;
+            font-size: 20px;
+            margin-top: 8px;
             background: #1a1a1a;
-            padding: 10px 35px;
-            border-radius: 50px;
+            padding: 6px 25px;
+            border-radius: 40px;
             display: inline-block;
             border: 2px solid #ff8800;
-            box-shadow: 0 0 30px rgba(255, 136, 0, 0.3);
-            letter-spacing: 2px;
         }
         .footer-text {
             color: #555;
-            margin-top: 25px;
-            font-size: 13px;
+            margin-top: 15px;
+            font-size: 11px;
             border-top: 1px solid #1a1a1a;
-            padding-top: 20px;
+            padding-top: 15px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Strobe Overlay -->
     <div id="strobe"></div>
 
     <div class="container" id="app">
 
-        <!-- STAGE 1: HACKER ALERT WITH PASSWORD LOCK -->
+        <!-- STAGE 1: ALERT -->
         <div id="stage1" class="alert-box">
-            
-            <!-- Top Badge -->
-            <div class="header-tag">🚨 INTERPOL CYBER DIVISION 🚨</div>
-            
-            <!-- Title -->
+            <div class="header-tag">🚨 INTERPOL CYBER DIVISION</div>
             <div class="alert-title">🔴 GLOBAL HACK DETECTED</div>
             <div class="alert-sub">📍 Case: #H4CK-2026 • Priority: CRITICAL</div>
 
-            <!-- 📸 PASSPORT PHOTO - CENTER -->
             <div class="photo-section">
                 <div class="photo-frame">
                     <!-- YAHAN APNI PHOTO KA NAAM LIKHO (Jaise: profile.jpg) -->
-                    <img src="profile.jpg" alt="Suspect Photo">
+                    <img src="profile.jpg" alt="Suspect">
                 </div>
             </div>
             <div class="mugshot-id">🔍 SUSPECT ID: GAURAV #786</div>
 
-            <!-- Fake Details Grid -->
             <div class="details-grid">
-                <span><span class="label">📛 Name</span><br><strong>GAURAV (Hacker Alias: Shadow)</strong></span>
-                <span><span class="label">🌐 IP Address</span><br><strong>192.168.1.1 (VPN Detected)</strong></span>
-                <span><span class="label">📍 Location</span><br><strong>Delhi, India (Cyber Cell)</strong></span>
-                <span><span class="label">📱 Device</span><br><strong>Windows 11 • Rooted</strong></span>
+                <span><span class="label">📛 NAME</span><br><strong>GAURAV (Shadow)</strong></span>
+                <span><span class="label">🌐 IP</span><br><strong>192.168.1.1</strong></span>
+                <span><span class="label">📍 LOCATION</span><br><strong>Delhi, India</strong></span>
+                <span><span class="label">📱 DEVICE</span><br><strong>Windows 11</strong></span>
             </div>
 
-            <!-- Alert Message -->
-            <div style="color:#ff7777; font-size:15px; margin-bottom:15px;">
-                ⚡ Unauthorized data exfiltration detected. <strong style="color:#ff0000;">SYSTEM LOCKED!</strong>
+            <div class="alert-msg-small">
+                ⚡ System compromised. <strong style="color:#ff0000;">LOCKED!</strong>
             </div>
 
-            <!-- 🔐 PASSWORD LOCK (Countdown hata diya) -->
             <div class="password-box">
-                <label>🔐 ENTER ADMIN OVERRIDE CODE TO UNLOCK</label>
+                <label>🔐 ENTER ADMIN OVERRIDE CODE</label>
                 <div class="password-input-group">
-                    <input type="password" id="passwordInput" placeholder="Enter Password...">
+                    <input type="password" id="passwordInput" placeholder="Pass...">
                     <button id="unlockBtn">🔓 UNLOCK</button>
                 </div>
                 <div id="errorMsg">⚠️ ACCESS CODE REQUIRED</div>
             </div>
 
-            <div class="warning-note">
-                🔒 Do not close this window • FBI Cyber Crime notified • Your IP is traced.
-            </div>
+            <div class="warning-note">🔒 Do not close • FBI Cyber Crime notified</div>
         </div>
 
-        <!-- STAGE 2: PRANK BRO REVEAL -->
+        <!-- STAGE 2: PRANK -->
         <div id="stage2" class="prank-box">
             <div class="prank-title">PRANK BRO! 😂</div>
-            <!-- Yahan bhi wahi photo aayegi -->
-            <img src="profile.jpg" alt="Prank Photo" class="prank-photo">
+            <img src="profile.jpg" alt="Prank" class="prank-photo">
             <div class="prank-sub">GOT YOU! 🔥</div>
-            <div class="footer-text">
-                ❤️ Tension mat lo, bas mazaak tha! <br> Aapki photo ab meri website pe safe hai 😉
-            </div>
+            <div class="footer-text">❤️ Tension mat lo, bas mazaak tha!</div>
         </div>
     </div>
 
@@ -386,96 +363,106 @@
             const unlockBtn = document.getElementById('unlockBtn');
             const errorMsg = document.getElementById('errorMsg');
 
-            // 🔑 SECRET PASSWORD (Isko tum badal sakte ho)
-            const CORRECT_PASSWORD = 'gaurav'; // <-- Yahan apna password likho
+            // 🔑 PASSWORD (यहाँ अपना पासवर्ड लिखो)
+            const CORRECT_PASSWORD = 'gaurav';
 
-            // ---------- 🔊 SOUND SETUP ----------
-            // IMPORTANT: Yahan apni sound file (Zedge wali) ka exact naam likho.
-            const audio = new Audio('Jadu_om_om.mp3'); 
-            audio.loop = true;
-            audio.volume = 0.9;
+            // ---------- 🔊 100% काम करने वाला ALARM (बिना MP3 के) ----------
+            let alarmInterval = null;
+            let audioCtx = null;
 
-            function playSound() {
-                audio.play().catch(function(error) {
-                    document.addEventListener('click', function playOnClick() {
-                        audio.play();
-                        document.removeEventListener('click', playOnClick);
-                    }, { once: true });
-                });
+            function playBeep(freq, dur, vol) {
+                try {
+                    if (!audioCtx) {
+                        audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+                    }
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sawtooth'; // तेज़ और कर्कश आवाज़
+                    osc.frequency.value = freq;
+                    gain.gain.value = vol || 0.3;
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start();
+                    setTimeout(() => {
+                        try { osc.stop(); } catch (e) {}
+                    }, dur);
+                } catch (e) {
+                    // अगर कुछ गड़बड़ हो तो ignore
+                }
             }
 
-            // Page load hote hi sound bajao
-            setTimeout(playSound, 500);
+            // हर 700ms पर एक तेज़ बीप बजाओ (Emergency Alarm)
+            function startAlarm() {
+                if (alarmInterval) return;
+                // पहली बीप तुरंत
+                playBeep(880, 200, 0.4);
+                alarmInterval = setInterval(() => {
+                    // अगर Stage 1 छिपा है (PRANK खुल गया) तो बजाना बंद करो
+                    if (stage1.style.display === 'none') {
+                        stopAlarm();
+                        return;
+                    }
+                    playBeep(800, 150, 0.4);
+                    // थोड़ी देर बाद एक और छोटी बीप (तेज़ी के लिए)
+                    setTimeout(() => {
+                        if (stage1.style.display !== 'none') {
+                            playBeep(1000, 100, 0.3);
+                        }
+                    }, 350);
+                }, 700);
+            }
 
-            // ----- UNLOCK FUNCTION (Password Check) -----
+            function stopAlarm() {
+                if (alarmInterval) {
+                    clearInterval(alarmInterval);
+                    alarmInterval = null;
+                }
+                if (audioCtx) {
+                    try { audioCtx.close(); } catch (e) {}
+                    audioCtx = null;
+                }
+            }
+
+            // पेज लोड होते ही अलार्म शुरू करो (500ms बाद)
+            setTimeout(startAlarm, 500);
+
+            // ---------- UNLOCK LOGIC ----------
             function unlockSystem() {
-                const enteredPassword = passwordInput.value.trim(); // User ne kya likha
+                const enteredPassword = passwordInput.value.trim();
 
                 if (enteredPassword.toLowerCase() === CORRECT_PASSWORD) {
-                    // ✅ SAHI PASSWORD: PRANK REVEAL KARO
+                    // ✅ सही पासवर्ड
                     stage1.style.display = 'none';
                     stage2.style.display = 'block';
 
-                    // 🛑 Sound band karo
-                    audio.pause();
-                    audio.currentTime = 0;
+                    stopAlarm(); // 🔇 अलार्म बंद करो
 
-                    // Strobe hatao
                     strobe.style.animation = 'none';
                     strobe.style.background = 'transparent';
 
-                    // Error message clear karo
                     errorMsg.style.color = '#00ff00';
-                    errorMsg.textContent = '✅ ACCESS GRANTED! UNLOCKING SYSTEM...';
+                    errorMsg.textContent = '✅ ACCESS GRANTED!';
 
-                    // End mein mazedar beep
-                    try {
-                        const ctx = new(window.AudioContext || window.webkitAudioContext)();
-                        const osc = ctx.createOscillator();
-                        const gain = ctx.createGain();
-                        osc.type = 'square';
-                        osc.frequency.value = 800;
-                        gain.gain.value = 0.3;
-                        osc.connect(gain);
-                        gain.connect(ctx.destination);
-                        osc.start();
-                        setTimeout(() => { osc.stop();
-                            ctx.close(); }, 400);
-                    } catch (e) {}
+                    // जश्न की बीप
+                    setTimeout(() => playBeep(1200, 200, 0.5), 100);
+                    setTimeout(() => playBeep(1500, 300, 0.6), 400);
 
                 } else {
-                    // ❌ GALAT PASSWORD: Darao aur kuch mat karo (Stage1 wahi rahega)
+                    // ❌ गलत पासवर्ड - डराओ
                     errorMsg.style.color = '#ff0000';
-                    errorMsg.textContent = '❌ INCORRECT CODE! ACCESS DENIED! SHUTTING DOWN... (just kidding, try again)';
-                    passwordInput.value = ''; // Input clear karo
+                    errorMsg.textContent = '❌ ACCESS DENIED! TRY AGAIN!';
+                    passwordInput.value = '';
                     passwordInput.focus();
 
-                    // Galat password par ek choti beep (aur daraane ke liye)
-                    try {
-                        const ctx = new(window.AudioContext || window.webkitAudioContext)();
-                        const osc = ctx.createOscillator();
-                        const gain = ctx.createGain();
-                        osc.type = 'sawtooth';
-                        osc.frequency.value = 200;
-                        gain.gain.value = 0.2;
-                        osc.connect(gain);
-                        gain.connect(ctx.destination);
-                        osc.start();
-                        setTimeout(() => { osc.stop();
-                            ctx.close(); }, 300);
-                    } catch (e) {}
-
-                    // Mobile vibrate (galti par jhatka)
+                    // गलती पर सख्त बीप
+                    playBeep(200, 400, 0.5);
                     if (navigator.vibrate) {
                         navigator.vibrate([100, 50, 100]);
                     }
                 }
             }
 
-            // ----- BUTTON CLICK EVENT -----
             unlockBtn.addEventListener('click', unlockSystem);
-
-            // ----- ENTER KEY PRESS EVENT (Keyboard se bhi kaam kare) -----
             passwordInput.addEventListener('keypress', function(event) {
                 if (event.key === 'Enter') {
                     event.preventDefault();
@@ -483,20 +470,20 @@
                 }
             });
 
-            // ----- MOBILE FEATURES -----
+            // मोबाइल पर पेज क्लिक करने पर अलार्म फोर्स शुरू (अगर रुक गया हो)
+            document.addEventListener('click', function() {
+                if (stage1.style.display !== 'none') {
+                    startAlarm();
+                }
+            });
+
+            // Screen Lock और Vibrate
             if (screen.orientation) {
                 try { screen.orientation.lock('portrait'); } catch (e) {}
             }
             if (navigator.vibrate) {
-                navigator.vibrate([300, 100, 300, 100, 500]);
+                navigator.vibrate([200, 100, 200]);
             }
-
-            // Page par click karne par sound force play
-            document.addEventListener('click', function() {
-                if (audio.paused && stage1.style.display !== 'none') {
-                    audio.play().catch(e => console.log("Still blocked"));
-                }
-            });
 
         })();
     </script>
