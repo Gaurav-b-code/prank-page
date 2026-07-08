@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>⚠️ CYBER CRIME WARNING</title>
+    <title>🔴 INTERPOL CYBER ALERT</title>
     <style>
+        /* ----- RESET & BASE ----- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            background: #000;
+            background: #050505;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -19,108 +20,192 @@
             font-family: 'Courier New', monospace;
             overflow: hidden;
         }
-        /* Full Screen Strobe Light Effect (High Level) */
+
+        /* ----- SCANLINE EFFECT (Real Hacker Feel) ----- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0, 255, 0, 0.03) 0px, rgba(0, 255, 0, 0.03) 2px, transparent 2px, transparent 6px);
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* ----- STROBE LIGHT ----- */
         #strobe {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 0, 0, 0.4);
+            background: rgba(255, 0, 0, 0.15);
             pointer-events: none;
-            z-index: 999;
-            animation: strobeFlash 0.5s infinite alternate;
+            z-index: 998;
+            animation: strobeFlash 0.4s infinite alternate;
         }
         @keyframes strobeFlash {
-            0% { background: rgba(255, 0, 0, 0.1); }
-            100% { background: rgba(255, 0, 0, 0.6); }
+            0% { background: rgba(255, 0, 0, 0.05); }
+            100% { background: rgba(255, 0, 0, 0.5); }
         }
 
         .container {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             width: 100%;
-            max-width: 600px;
+            max-width: 550px;
             position: relative;
             z-index: 10;
         }
 
-        /* Main Alert Box - Cyber Crime Style */
+        /* ----- MAIN ALERT BOX (FBI/INTERPOL Style) ----- */
         .alert-box {
-            background: #0d0d0d;
-            border: 4px solid #ff2200;
-            padding: 30px 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 60px rgba(255, 0, 0, 0.8), inset 0 0 30px rgba(255, 0, 0, 0.2);
-            animation: pulseBorder 0.8s infinite alternate;
+            background: #0a0a0a;
+            border: 3px solid #ff2200;
+            padding: 25px 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 70px rgba(255, 0, 0, 0.6), inset 0 0 40px rgba(255, 0, 0, 0.15);
+            animation: pulseBorder 1s infinite alternate;
         }
         @keyframes pulseBorder {
-            0% { border-color: #ff2200; box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); }
-            100% { border-color: #ff8800; box-shadow: 0 0 80px rgba(255, 68, 0, 0.9); }
+            0% { border-color: #cc0000; box-shadow: 0 0 40px rgba(255, 0, 0, 0.4); }
+            100% { border-color: #ff6600; box-shadow: 0 0 100px rgba(255, 68, 0, 0.9); }
         }
 
-        .glitch-icon {
-            font-size: 70px;
-            display: block;
-            margin-bottom: 5px;
-            animation: glitch 0.3s infinite alternate;
+        /* ----- TOP HEADER (Cyber Crime) ----- */
+        .header-tag {
+            background: #1a0000;
+            color: #ff4444;
+            font-size: 12px;
+            letter-spacing: 4px;
+            padding: 6px 15px;
+            border-radius: 30px;
+            display: inline-block;
+            border: 1px solid #ff0000;
+            margin-bottom: 15px;
+            font-weight: bold;
         }
-        @keyframes glitch {
-            0% { transform: skewX(0deg); opacity: 1; }
-            100% { transform: skewX(5deg); opacity: 0.8; }
-        }
-
         .alert-title {
             color: #ff2200;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: bold;
-            letter-spacing: 3px;
-            text-shadow: 0 0 20px #ff0000;
+            letter-spacing: 2px;
+            text-shadow: 0 0 30px #ff0000;
         }
         .alert-sub {
             color: #ff6666;
-            font-size: 14px;
+            font-size: 13px;
             background: #1a0000;
-            padding: 8px;
+            padding: 5px 15px;
             border-radius: 5px;
             display: inline-block;
-            margin-top: 10px;
-            border: 1px solid #ff0000;
-        }
-        .alert-msg {
-            color: #ff9999;
-            font-size: 18px;
-            margin-top: 20px;
-            line-height: 1.8;
+            margin-top: 8px;
+            border: 1px solid #330000;
         }
 
-        .timer-box {
-            margin-top: 30px;
+        /* ----- 📸 PASSPORT SIZE PHOTO (CENTER) ----- */
+        .photo-section {
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .photo-frame {
+            border: 4px solid #ff2200;
+            border-radius: 12px;
+            padding: 6px;
+            background: #000;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.5);
+            animation: glowPulse 1.2s infinite alternate;
+            width: 130px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
+            100% { box-shadow: 0 0 60px rgba(255, 68, 0, 0.8); }
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+        }
+        /* Mugshot ID text */
+        .mugshot-id {
+            color: #ff4444;
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-top: 8px;
             background: #111;
-            padding: 20px;
+            padding: 3px 15px;
+            border-radius: 20px;
+            border: 1px dashed #ff0000;
+            display: inline-block;
+        }
+
+        /* ----- FAKE DETAILS (Hacker Info) ----- */
+        .details-grid {
+            background: #0d0d0d;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin: 15px 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 15px;
+            text-align: left;
+            font-size: 13px;
+        }
+        .details-grid span {
+            color: #888;
+        }
+        .details-grid strong {
+            color: #ffaaaa;
+            font-weight: normal;
+        }
+        .details-grid .label {
+            color: #555;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* ----- COUNTDOWN TIMER ----- */
+        .timer-box {
+            margin-top: 15px;
+            background: #111;
+            padding: 15px;
             border-radius: 10px;
-            border: 1px solid #333;
+            border: 1px solid #2a0000;
         }
         .timer-label {
             color: #ff4444;
-            font-size: 16px;
+            font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             font-weight: bold;
         }
         .countdown {
             color: #ff0000;
-            font-size: 90px;
+            font-size: 80px;
             font-weight: bold;
             font-family: 'Courier New', monospace;
-            text-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
+            text-shadow: 0 0 50px rgba(255, 0, 0, 0.9);
+            line-height: 1.2;
         }
         .progress-bar {
             width: 100%;
-            height: 8px;
-            background: #222;
+            height: 6px;
+            background: #1a1a1a;
             border-radius: 10px;
-            margin-top: 20px;
+            margin-top: 15px;
             overflow: hidden;
         }
         .progress-fill {
@@ -135,53 +220,68 @@
             100% { width: 0%; }
         }
 
-        /* PRANK REVEAL - High Level Animation */
+        .warning-note {
+            color: #440000;
+            font-size: 11px;
+            margin-top: 15px;
+            border-top: 1px solid #1a0000;
+            padding-top: 15px;
+        }
+
+        /* ----- PRANK REVEAL (Photo ke saath) ----- */
         .prank-box {
             display: none;
             animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         @keyframes popIn {
-            0% { transform: scale(0) rotate(-30deg); opacity: 0; }
+            0% { transform: scale(0.2) rotate(-20deg); opacity: 0; }
             100% { transform: scale(1) rotate(0deg); opacity: 1; }
         }
         .prank-title {
-            font-size: 70px;
+            font-size: 65px;
             font-weight: 900;
             background: linear-gradient(45deg, #ff0000, #ffaa00, #ff0000);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientMove 0.8s ease infinite alternate;
-            filter: drop-shadow(0 0 40px rgba(255, 68, 0, 0.8));
+            animation: gradientMove 0.6s ease infinite alternate;
+            filter: drop-shadow(0 0 40px rgba(255, 68, 0, 0.7));
         }
         @keyframes gradientMove {
             0% { background-position: 0% 50%; transform: scale(1); }
-            100% { background-position: 100% 50%; transform: scale(1.1); }
+            100% { background-position: 100% 50%; transform: scale(1.05); }
         }
-        .prank-emoji {
-            font-size: 120px;
+        .prank-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 6px solid #ff8800;
+            object-fit: cover;
+            margin: 15px auto;
             display: block;
             animation: shake 0.2s infinite alternate;
+            box-shadow: 0 0 60px rgba(255, 136, 0, 0.5);
         }
         @keyframes shake {
-            0% { transform: rotate(-15deg); }
-            100% { transform: rotate(15deg); }
+            0% { transform: rotate(-10deg); }
+            100% { transform: rotate(10deg); }
         }
         .prank-sub {
             color: #fff;
-            font-size: 28px;
-            margin-top: 20px;
-            background: #222;
-            padding: 12px 40px;
+            font-size: 26px;
+            margin-top: 10px;
+            background: #1a1a1a;
+            padding: 10px 35px;
             border-radius: 50px;
             display: inline-block;
             border: 2px solid #ff8800;
             box-shadow: 0 0 30px rgba(255, 136, 0, 0.3);
+            letter-spacing: 2px;
         }
         .footer-text {
             color: #555;
-            margin-top: 30px;
-            font-size: 12px;
+            margin-top: 25px;
+            font-size: 13px;
             border-top: 1px solid #1a1a1a;
             padding-top: 20px;
         }
@@ -189,20 +289,44 @@
 </head>
 <body>
 
-    <!-- Strobe Light overlay for high-level feel -->
+    <!-- Strobe Overlay -->
     <div id="strobe"></div>
 
     <div class="container" id="app">
 
-        <!-- STAGE 1: Fake Cyber Alert -->
+        <!-- STAGE 1: HACKER ALERT WITH PHOTO -->
         <div id="stage1" class="alert-box">
-            <span class="glitch-icon">🖥️⚠️</span>
-            <div class="alert-title">🔴 YOUR SYSTEM HAS BEEN BREACHED</div>
-            <div class="alert-sub">📍 Location: Delhi, India • IP: 192.168.1.1</div>
-            <div class="alert-msg">
-                We have detected unauthorized access to your camera & data.<br>
-                <strong style="color:#ff0000;">Initiating permanent data destruction in...</strong>
+            
+            <!-- Top Badge -->
+            <div class="header-tag">🚨 INTERPOL CYBER DIVISION 🚨</div>
+            
+            <!-- Title -->
+            <div class="alert-title">🔴 GLOBAL HACK DETECTED</div>
+            <div class="alert-sub">📍 Case: #H4CK-2026 • Priority: CRITICAL</div>
+
+            <!-- 📸 PASSPORT PHOTO - CENTER (Yahan tumhari photo aayegi) -->
+            <div class="photo-section">
+                <div class="photo-frame">
+                    <!-- IMPORTANT: Agar tumne photo ka naam 'profile.jpg' rakha hai toh sahi hai, warna isko change karna -->
+                    <img src="profile.jpg" alt="Suspect Photo" id="userPhoto">
+                </div>
             </div>
+            <div class="mugshot-id">🔍 SUSPECT ID: GAURAV #786</div>
+
+            <!-- Fake Details Grid -->
+            <div class="details-grid">
+                <span><span class="label">📛 Name</span><br><strong>GAURAV (Hacker Alias: Shadow)</strong></span>
+                <span><span class="label">🌐 IP Address</span><br><strong>192.168.1.1 (VPN Detected)</strong></span>
+                <span><span class="label">📍 Location</span><br><strong>Delhi, India (Cyber Cell)</strong></span>
+                <span><span class="label">📱 Device</span><br><strong>Windows 11 • Rooted</strong></span>
+            </div>
+
+            <!-- Alert Message -->
+            <div style="color:#ff7777; font-size:15px; margin-bottom:10px;">
+                ⚡ Unauthorized data exfiltration detected. <strong style="color:#ff0000;">Deleting system files in...</strong>
+            </div>
+
+            <!-- Countdown Timer -->
             <div class="timer-box">
                 <div class="timer-label">⏳ COUNTDOWN TO LOCKDOWN</div>
                 <div class="countdown" id="timerDisplay">10</div>
@@ -210,18 +334,20 @@
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
             </div>
-            <div class="alert-msg" style="font-size:12px; color:#440000; margin-top:15px;">
-                🔒 Do not close this window. FBI Cyber Crime Division notified.
+
+            <div class="warning-note">
+                🔒 Do not close this window • FBI Cyber Crime notified • Your IP is traced.
             </div>
         </div>
 
-        <!-- STAGE 2: PRANK BRO Reveal -->
+        <!-- STAGE 2: PRANK BRO WITH PHOTO -->
         <div id="stage2" class="prank-box">
             <div class="prank-title">PRANK BRO! 😂</div>
-            <span class="prank-emoji">🤡</span>
+            <!-- Yahan bhi wahi photo aayegi, lekin mast mazaak wali style mein -->
+            <img src="profile.jpg" alt="Prank Photo" class="prank-photo">
             <div class="prank-sub">GOT YOU! 🔥</div>
             <div class="footer-text">
-                ❤️ Aapka dost • Tension mat lo, bas mazaak tha!
+                ❤️ Tension mat lo, bas mazaak tha! <br> Aapki photo ab meri website pe safe hai 😉
             </div>
         </div>
     </div>
@@ -234,18 +360,15 @@
             const stage2 = document.getElementById('stage2');
             const strobe = document.getElementById('strobe');
 
-            // ---------- 🔊 Aapki Apni Sound File (HIGH LEVEL) ----------
-            // IMPORTANT: Agar aapne file ka naam 'alarm.mp3' rakha hai toh ye sahi hai.
-            // Agar 'sound.mp3' ya kuch aur rakha hai toh neeche 'alarm.mp3' ki jagah woh naam likh do.
-            const audio = new Audio('Jadu_om_om.mp3');
-            audio.loop = true;  // Tab tak bajta rahega jab tak PRANK reveal nahi ho jata
-            audio.volume = 0.9; // Tez awaz (full volume)
+            // ---------- 🔊 SOUND SETUP ----------
+            // IMPORTANT: Agar aapki sound file ka naam 'Jadu_om_om.mp3' hai toh neeche wahi likho.
+            // Agar 'alarm.mp3' rakha hai toh 'alarm.mp3' hi rehne do.
+            const audio = new Audio('Jadu_om_om.mp3'); // <-- Yahan apni file ka naam likho
+            audio.loop = true;
+            audio.volume = 0.9;
 
-            // Awaz ko turant bajana shuru karo (bina kisi delay ke)
             function playSound() {
                 audio.play().catch(function(error) {
-                    // Agar auto-play block ho (mobile policy), toh user click par chala denge
-                    console.log("Auto-play blocked. Waiting for user interaction.");
                     document.addEventListener('click', function playOnClick() {
                         audio.play();
                         document.removeEventListener('click', playOnClick);
@@ -253,33 +376,36 @@
                 });
             }
 
-            // Pehle 1 second baad sound bajao (page load hone do)
-            setTimeout(playSound, 300);
+            // Page load hote hi 0.5 second baad sound bajao
+            setTimeout(playSound, 500);
 
-            // ----- Countdown Timer Logic -----
+            // ----- COUNTDOWN LOGIC -----
             const interval = setInterval(() => {
                 counter--;
                 timerDisplay.textContent = counter;
 
-                // Counter khatam hone par
+                if (counter <= 3) {
+                    timerDisplay.style.color = '#ff0000';
+                }
+
                 if (counter <= 0) {
                     clearInterval(interval);
 
-                    // 🔇 SOUND BAND KARO (kyunki ab PRANK reveal ho raha hai)
+                    // 🛑 Sound band karo
                     audio.pause();
-                    audio.currentTime = 0; // Reset karo
+                    audio.currentTime = 0;
 
-                    // Stage 1 hide, Stage 2 show
+                    // Stage 1 -> Stage 2
                     stage1.style.display = 'none';
                     stage2.style.display = 'block';
 
-                    // Strobe light hatao ya band karo (thoda smoothness ke liye)
+                    // Strobe hatao
                     strobe.style.animation = 'none';
                     strobe.style.background = 'transparent';
 
-                    // End mein mazedaar beep (kuch natural sound)
+                    // End mein mazedar beep
                     try {
-                        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                        const ctx = new(window.AudioContext || window.webkitAudioContext)();
                         const osc = ctx.createOscillator();
                         const gain = ctx.createGain();
                         osc.type = 'square';
@@ -288,24 +414,21 @@
                         osc.connect(gain);
                         gain.connect(ctx.destination);
                         osc.start();
-                        setTimeout(() => { osc.stop(); ctx.close(); }, 400);
+                        setTimeout(() => { osc.stop();
+                            ctx.close(); }, 400);
                     } catch (e) {}
                 }
             }, 1000);
 
-            // ----- Mobile Extra Features (High Level) -----
-            // Screen rotate lock
+            // ----- MOBILE FEATURES -----
             if (screen.orientation) {
-                try {
-                    screen.orientation.lock('portrait');
-                } catch (e) {}
+                try { screen.orientation.lock('portrait'); } catch (e) {}
             }
-            // Mobile Vibrate
             if (navigator.vibrate) {
                 navigator.vibrate([300, 100, 300, 100, 500]);
             }
 
-            // Agar koi user page par click kare aur sound na baj rahi ho toh force play
+            // Click par sound force play
             document.addEventListener('click', function() {
                 if (audio.paused && stage1.style.display !== 'none') {
                     audio.play().catch(e => console.log("Still blocked"));
