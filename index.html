@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Security Alert</title>
+<style>
+body{
+    background:black;
+    color:red;
+    text-align:center;
+    font-family:Arial;
+    padding-top:100px;
+}
+.box{
+    border:3px solid red;
+    padding:30px;
+    width:350px;
+    margin:auto;
+    border-radius:15px;
+}
+input,button{
+    padding:10px;
+    margin:10px;
+    font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h1>⚠️ SECURITY ALERT ⚠️</h1>
+
+<p>Your device has been locked!</p>
+
+<p>Enter Password To Unlock</p>
+
+<input id="pass" type="password" placeholder="Password">
+
+<br>
+
+<button onclick="unlock()">UNLOCK</button>
+
+<h2 id="msg"></h2>
+
+</div>
+
+
+<script>
+
+function unlock(){
+
+let p=document.getElementById("pass").value;
+
+if(p=="1234"){
+
+document.body.innerHTML=
+"<h1 style='color:lime;text-align:center;margin-top:200px'>😂 PRANK COMPLETE 😂<br>Relax Bro!</h1>";
+
+}
+else{
+
+document.getElementById("msg").innerHTML=
+"Wrong Password 😈";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
